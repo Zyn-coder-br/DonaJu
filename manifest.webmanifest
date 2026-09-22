@@ -2,6 +2,7 @@
   "name": "Dona Ju Confeitaria - Gestão",
   "short_name": "Dona Ju",
   "start_url": "./",
+  "src": "ASSETS/logo.png",
   "display": "standalone",
   "background_color": "#fff8f1",
   "theme_color": "#b86f79",
