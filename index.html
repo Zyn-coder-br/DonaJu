@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#b86f79" />
+  <meta name="description" content="Gestão da Dona Ju Confeitaria Artesanal" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/logo.png" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <title>Dona Ju | Gestão</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="assets/logo.png" alt="Logo Dona Ju Confeitaria" />
+        <div><strong>Dona Ju</strong><span>Gestão Artesanal</span></div>
+      </div>
+      <nav id="main-nav" aria-label="Navegação principal">
+        <button class="nav-item active" data-view="dashboard">▦ <span>Dashboard</span></button>
+        <button class="nav-item" data-view="orders">▤ <span>Pedidos</span></button>
+        <button class="nav-item" data-view="products">▥ <span>Produtos</span></button>
+        <button class="nav-item" data-view="customers">♙ <span>Clientes</span></button>
+        <button class="nav-item" data-view="deliveries">◷ <span>Entregas</span></button>
+        <button class="nav-item" data-view="reports">◈ <span>Relatórios</span></button>
+      </nav>
+      <div class="sidebar-footer"><span class="status-dot"></span> V0.1 • Fundação</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div><span class="eyebrow">DONA JU CONFEITARIA ARTESANAL</span><h1 id="page-title">Dashboard</h1></div>
+        <div class="topbar-actions"><span class="sync-badge">● Modo demonstração</span><button id="quick-add" class="primary-btn">+ Novo pedido</button></div>
+      </header>
+      <section id="app-view" class="view-container" aria-live="polite"></section>
+    </main>
+  </div>
+  <div id="modal-root"></div>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

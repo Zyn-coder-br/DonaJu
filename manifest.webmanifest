@@ -1,0 +1,10 @@
+{
+  "name": "Dona Ju Confeitaria - Gestão",
+  "short_name": "Dona Ju",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff8f1",
+  "theme_color": "#b86f79",
+  "description": "Sistema de gestão para encomendas, estoque, entregas e relatórios.",
+  "icons": [{"src":"assets/logo.png","sizes":"512x512","type":"image/png"}]
+}
