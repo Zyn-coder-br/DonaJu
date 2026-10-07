@@ -59,13 +59,25 @@ async function handleLogin(e){
   if(!email||!password){msg.textContent='Informe seu e-mail e sua senha.';msg.classList.add('show');return}
   btn.disabled=true; btn.innerHTML=`${icon('lock')}<span>Entrando...</span>`; msg.textContent='';msg.classList.remove('show');
   try{
+    if(!supabaseClient) throw new Error('Cliente Supabase não foi inicializado.');
     const {data,error}=await supabaseClient.auth.signInWithPassword({email,password});
-    if(error)throw error;
-    const profile=await loadProfile(data.user);
-    showApp(data.user,profile);
+    if(error){
+      console.error('[DonaJu][AUTH] signInWithPassword:',error);
+      const detail=[error.message,error.code,error.status?`HTTP ${error.status}`:''].filter(Boolean).join(' • ');
+      throw new Error(`AUTH: ${detail}`);
+    }
+    if(!data?.user) throw new Error('AUTH: o Supabase não retornou o usuário após o login.');
+    console.info('[DonaJu][AUTH] Login confirmado pelo Supabase:',data.user.id,data.user.email);
+    try{
+      const profile=await loadProfile(data.user);
+      showApp(data.user,profile);
+    }catch(profileError){
+      console.error('[DonaJu][PROFILE] Falha ao carregar profiles:',profileError);
+      throw new Error(`PERFIL: ${profileError.message||profileError}`);
+    }
   }catch(error){
-    console.error(error);
-    msg.textContent=error.message?.includes('Invalid login credentials')?'E-mail ou senha incorretos.':'Não foi possível entrar. Verifique o acesso e tente novamente.';
+    console.error('[DonaJu][LOGIN]',error);
+    msg.textContent=error.message||'Erro desconhecido durante o login.';
     msg.classList.add('show'); btn.disabled=false;btn.innerHTML=`${icon('lock')}<span>Entrar</span>`;
   }
 }
