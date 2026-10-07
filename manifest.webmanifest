@@ -1,10 +1,14 @@
 {
-  "name": "Dona Ju Confeitaria - Gestão",
-  "short_name": "Dona Ju",
-  "start_url": "./",
-  "display": "standalone",
-  "background_color": "#fff8f1",
-  "theme_color": "#b86f79",
-  "description": "Sistema de gestão para encomendas, estoque, entregas e relatórios.",
-  "icons": [{"src":"assets/logo.png","sizes":"512x512","type":"image/png"}]
+  "name":"Dona Ju Confeitaria Artesanal",
+  "short_name":"Dona Ju",
+  "start_url":"./",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#fff8f1",
+  "theme_color":"#633c42",
+  "description":"Sistema de gestão da Dona Ju Confeitaria Artesanal.",
+  "icons":[
+    {"src":"assets/logo.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"assets/logo.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
 }
