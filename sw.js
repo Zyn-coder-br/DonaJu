@@ -1,5 +1,5 @@
-const CACHE='donaju-v04';
-const SHELL=['./','./index.html','./css/styles.css','./js/app.js','./manifest.webmanifest','./assets/logo.png'];
+const CACHE='donaju-v052';
+const SHELL=['./','./index.html','./css/styles.css','./js/config.js','./js/app.js','./manifest.webmanifest','./assets/logo.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('message',e=>{if(e.data?.type==='SKIP_WAITING')self.skipWaiting()});
